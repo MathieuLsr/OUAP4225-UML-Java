@@ -1,7 +1,5 @@
 package application.engine;
 
-import java.util.Scanner;
-
 import application.GameInterface;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,11 +11,14 @@ public class Universe {
     
     @Getter private Ground ground ; 
     @Getter @Setter private GameInterface gameInterface ;
+    
+    @Getter @Setter private int numTour ;
 
     public Universe(int numSheep, int numWolf, GameInterface gameInterface2) {
         
     	this.ground = new Ground(numSheep, numWolf) ;
     	setGameInterface(gameInterface2);
+    	setNumTour(0);
     	
     	gameInterface.setScene();
     	setNumSheep(numSheep);
@@ -33,10 +34,17 @@ public class Universe {
         ground.generateSheep(numSheep);
         ground.generateWolves(numWolf);
         ground.updateGrid();
-        
     	
     }
+    
+    public void doSimulation() {
+    	numTour++ ;
+    	ground.updateGrid();
+    	GameInterface.getInstance().setTour(numTour);
+        GameInterface.getInstance().updateInterface(ground);
+    }
 
+    /*
     public void startSimulation() throws InterruptedException {
     	
     	System.out.println("- Start simulation");
@@ -48,9 +56,7 @@ public class Universe {
 			public void run() {
 				while(ground.isAliveSheep() || ground.isAliveWolves()){
 		            
-		        	System.out.println(GameInterface.grid);
-		        	ground.updateGrid();
-		            GameInterface.getInstance().updateInterface(ground);
+		        	doSimulation();
 		            
 		            try {
 						Thread.sleep(1000);
@@ -71,13 +77,11 @@ public class Universe {
         thr.run();
     	
     }
-
+	*/
 
 
 	public void updateInterface() {
-		
 		gameInterface.updateInterface(ground);
-		
 	}
 }
 

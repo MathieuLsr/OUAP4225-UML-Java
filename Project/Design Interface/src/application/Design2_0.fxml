@@ -73,7 +73,7 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Button fx:id="button_update" defaultButton="true" layoutX="16.0" layoutY="66.0" mnemonicParsing="false" onAction="#update" prefHeight="27.0" prefWidth="110.0" text="Actualiser">
+            <Button fx:id="button_update" defaultButton="true" layoutX="16.0" layoutY="80.0" mnemonicParsing="false" onAction="#update" prefHeight="27.0" prefWidth="110.0" text="Actualiser">
                <font>
                   <Font size="14.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button defaultButton="true" layoutX="16.0" layoutY="23.0" mnemonicParsing="false" onAction="#startSimulation" prefHeight="27.0" prefWidth="110.0" text="Lancement">
+            <Button defaultButton="true" layoutX="16.0" layoutY="38.0" mnemonicParsing="false" onAction="#startSimulation" prefHeight="27.0" prefWidth="110.0" text="Prochain tour">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -89,6 +89,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
+            <Label fx:id="label_tour" layoutX="16.0" layoutY="185.0" prefHeight="28.0" prefWidth="110.0" text="Tour n° 0" textAlignment="CENTER" />
          </children></AnchorPane>
   </items>
 </SplitPane>

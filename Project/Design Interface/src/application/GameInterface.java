@@ -11,6 +11,7 @@ import javafx.geometry.HPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import lombok.Getter;
@@ -26,6 +27,8 @@ public class GameInterface {
 	
 	@FXML @Getter @Setter private GridPane gameGridPane ;
 	@FXML @Getter @Setter private Button button_update ;
+	
+	@FXML @Getter @Setter private Label label_tour ;
 	
 	
 	public GameInterface() {
@@ -65,12 +68,10 @@ public class GameInterface {
 	
 	@FXML
 	public void startSimulation() {
+		GameInterface.grid = gameGridPane ;
+		GameInterface.instance = this ;
 		Universe universe = MainEcosystem.getInstance().getUniverse() ;
-		try {
-			universe.startSimulation();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		universe.doSimulation();
 	}
 	
 	public void updateInterface(Ground ground) {
@@ -90,6 +91,10 @@ public class GameInterface {
 				GridPane.setHalignment(view, HPos.CENTER);
 			}
 		
+	}
+	
+	public void setTour(int nbTour) {
+		label_tour.setText("Tour n° "+nbTour);
 	}
 	
 	

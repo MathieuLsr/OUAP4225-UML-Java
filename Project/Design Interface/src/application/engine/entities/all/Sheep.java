@@ -111,6 +111,7 @@ public class Sheep extends Animal {
 		Position pos = new Position(getX(), getY()) ;
 		ground.setEntity(new Grass(ground, getX(), getY())) ;
 		
+		
 		pos.add(
 				list.get((int) (Math.random()*list.size())), 
 				list.get((int) (Math.random()*list.size()))
@@ -134,7 +135,7 @@ public class Sheep extends Animal {
             ground.setEntity(this);
         }
         */
-        System.out.println("=> "+getPos());
+        //System.out.println("=> "+getPos());
 	}
 }
 

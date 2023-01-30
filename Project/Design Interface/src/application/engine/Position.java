@@ -19,10 +19,10 @@ public class Position {
 	
 	public void clipRange(int maxX, int maxY) {
 		if(x < 0) x = 0 ;
-		else if(x > maxX) x = maxX ;
+		else if(x >= maxX) x = maxX-1 ;
 		
 		if(y < 0) y = 0 ;
-		else if(y > maxY) y = maxY ;
+		else if(y >= maxY) y = maxY-1 ;
 	}
 	
 	@Override
